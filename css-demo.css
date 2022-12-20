@@ -1,0 +1,49 @@
+/*Selector ID*/
+<style>#top {
+    border: 10px solid gainsboro;
+    color: violet;
+}
+
+/*Universal selector */
+ {
+    color: green;
+    background: black;
+}
+
+/*Class selector */
+.note {
+    color: blueviolet;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: blue;
+}
+
+p>a {
+    color: red;
+}
+
+ul>li>a {
+    color: aqua;
+    font-size: 50px;
+}
+
+a:hover, a:visited{
+    color: blue;
+}
+.box{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    display: flex;
+}
+.box1{
+    background-color: aqua;
+}
+
+</style>

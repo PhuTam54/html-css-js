@@ -1,0 +1,18 @@
+:root {
+  --text-color: violet;
+}
+
+h1 {
+  --h1-color: green;
+  color: var(--h1-color);
+  font-size: 40px;
+}
+
+#name {
+    font-size: x-large;
+}
+
+.else {
+  color: var(--text-color);
+}
+

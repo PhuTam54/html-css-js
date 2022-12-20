@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="top">ok con de</h1>
+    <form method="get" action="style.css">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+        <br>
+        <button>Submit</button>
+    </form>
+    <br>
+    <hr><br>
+
+    <form action="style.css" method="get">
+        <!-- Nhóm theo vùng -->
+        <!-- Vùng thông tin -->
+        <fieldset>
+            <legend>Your details:</legend>
+            <label>Name: <input type="text" maxlength="30" size="50" name="name" id="name"></label> <br>
+            <label>Email: <input type="email" maxlength="100" size="50" name="email" id="email"></label> <br>
+        </fieldset>
+        <!-- Vùng tùy chọn -->
+        <fieldset>
+            <legend>Your review:</legend>
+            <p>
+                <label for="hear-about">How did you heer about us?</label>
+                <select name="referrer" id="hear-about">
+                    <option value="google">Google</option>
+                    <option value="friend">Friend</option>
+                    <option value="advert">Advert</option>
+                    <option value="other">Other</option>
+                </select>
+            </p>
+            <p>
+                <!-- Survey -->
+                Would you like visit again? <br>
+                <label><input type="radio" name="rating" value="yes">Yes</label>
+                <label><input type="radio" name="rating" value="no">No</label>
+                <label><input type="radio" name="rating" value="maybe">Maybe</label>
+            </p>
+            <p>
+                <label for="comments">Comments:</label>
+                <textarea name="comments" cols="40" rows="5"></textarea>
+            </p>
+            <label><input type="checkbox" name="checkbox" check>Sign me up for email updates</label><br>
+            <input type="submit" value="Submit review">
+        </fieldset>
+        <br>
+        <hr>
+        <p>On the 4<sup>th</sup> of september you will learn C programming</p>
+        <blockquote> <cite>https://github.com/PhuTam54</cite>
+            <p>
+                "Hoc HTML ..."
+            </p>
+        </blockquote>
+
+        <p>A <dfn>black hold</dfn> is a region of space from which nothing!</p>
+
+        <p>
+            Laptop computer was <s>500$</s> Now only 400$
+        </p>
+        <P>Demo delete <del>deleted</del> and demo insert <ins>inserted</ins></P>
+        <a href="#top">Back to top</a>
+        <br>
+        <hr><br>
+
+        <style>
+            table {
+                border: 2px solid red;
+            }
+
+            th,
+            td {
+                border: none;
+                background-color: aquamarine;
+                padding: 5px;
+                width: 100px;
+            }
+        </style>
+
+        <footer>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>9am</th>
+                    <th>10am</th>
+                    <th>11am</th>
+                    <th>12am</th>
+                </tr>
+                <tr>
+                    <th>Monday</th>
+                    <td colspan="2">Geography</td>
+                    <td>Math</td>
+                    <td>Art</td>
+                </tr>
+                <tr>
+                    <th>Tuesday</th>
+                    <td colspan="3">Gym</td>
+                    <td>Home Ec</td>
+                </tr>
+            </table>
+        </footer>
+
+</html>

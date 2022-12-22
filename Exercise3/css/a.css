@@ -1,11 +1,11 @@
-(@import url(http://fonts.googleapis.com/css?family=Karla:400,700); ) body {
+@import url(http://fonts.googleapis.com/css?family=Karla:400,700);
+body {
     margin: 0;
     padding: 0;
     background-color: #f1f1f1;
     font-family: 'Karla', sans-serif;
     color: #333;
 }
-
 /* Header */
 header {
     background-color: #333333;

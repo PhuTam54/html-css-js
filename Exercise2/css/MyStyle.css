@@ -31,7 +31,7 @@ a:hover {
     background-image: url(../images/bg-header.jpg);
     padding: 0px 0px 0px 0px;
     height: 100px;
-    position: fixed;
+    position: ;
     top: 0px;
     width: 100%;
     z-index: 50;
@@ -42,6 +42,7 @@ a:hover {
     font-family: QuicksandBook, Arial, Helvetica, sans-serif
     padding : 45px 0px 0px 0px;
     text-align: right;
+    margin: 0px 0px 20px 0px;
 }
 
 .wrapper {

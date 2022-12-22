@@ -1,5 +1,5 @@
 (function () {
-    var $imgs = $('#galley img');
+    var $imgs = $('#gallery img');
     var $search = $('#filter-search');
     var cache = [];
 
@@ -11,8 +11,8 @@
     });
 
     function filter() {
-        var query = this.value.trim().toLowerCase;
-        cache.forEach(function ($imgs){
+        var query = this.value.trim().toLowerCase();
+        cache.forEach(function(img){
             var index = 0;
 
             if (query) {
@@ -20,7 +20,7 @@
             }
             img.element.style.display = index === -1 ? 'none' : '';
         });
-    };
+    }
 
 if ('oninput' in $search[0]) {
         $search.on('input', filter);

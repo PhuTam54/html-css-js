@@ -1,4 +1,4 @@
-$('.slider').each(function() {
+$('.slider').each(function () {
     var $this = $(this);
     var $group = $this.find('.slide-group');
     var $slides = $this.find('.slide');
@@ -50,7 +50,7 @@ $('.slider').each(function() {
 
     $.each($slides, function (index) {
         //Create a button element for the button
-        var $button = $('<button type= "button" class="slide-btn">&bull;</button>');
+        var $button = $('<button type="button" class="slide-btn">&bull;</button>');
         if (index === currentIndex) {
             $button.addClass('active');
         }

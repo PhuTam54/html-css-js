@@ -24,7 +24,7 @@ body{
     padding: 10px 20px
 }
 .image{
-    background-image: url(./images/bg.svg);
+    background-image: url(../images/bg.svg);
     height: 65%;
     background-repeat: no-repeat;
     background-size: contain;

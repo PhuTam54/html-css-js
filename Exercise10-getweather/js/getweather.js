@@ -4,6 +4,6 @@ $.get("https://api.openweathermap.org/data/2.5/weather?q=Hanoi&appid=dd0c2b39eab
         $('.city').html('City: ' + api.name);
         $('.description').html('Description: ' + api.weather[0].description);
 
-        $('.icon img').attr('src', 'https://openweathermap.org/img/wn' + api.weather[0].icon + '.png');
+        $('.icon img').attr('src', 'https://openweathermap.org/img/wn/' + api.weather[0].icon + '.png');
     }
 );

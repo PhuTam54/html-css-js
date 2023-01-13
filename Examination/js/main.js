@@ -1,5 +1,6 @@
 const usernameEl = document.querySelector('#username')
 const emailEl = document.querySelector('#email')
+const phoneEl = document.querySelector('#phone')
 const passwordEl = document.querySelector('#password')
 const confirmPasswordEl = document.querySelector('#confirmpassword')
 const phone = document.querySelector('#phone')
@@ -8,15 +9,14 @@ const form = document.querySelector('#signup')
 
 // check 
 const isRequired = value => value === '' ? false : true
-const isBetween = (length, min, max) => length < min || lenghth > max ? flase : true
+const isBetween = (length, min, max) => length < min || length > max ? false : true
 
-// Check username
 const checkUsername = () => {
     let valid = false
     const min = 3, max = 25
     const username = usernameEl.value.trim()
     if (!isBetween(username.length, min, max)) {
-        showError(usernameEl, `Username must be between ${min} and ${max} characters.`)
+        showError(usernameEl, `User name must be between ${min} and ${max} characters.`)
     } else {
         showSuccess(usernameEl)
         valid = true
@@ -33,6 +33,24 @@ const checkEmail = () => {
         showError(emailEl, 'Email is not valid.')
     } else {
         showSuccess(emailEl)
+        valid = true
+    }
+    return valid
+}
+
+const checkPhoneNumber = () => {
+    let valid = false
+    const phone = phoneEl.value.trim()
+    const min = 8, max = 10
+
+    if (!isRequired(phone)) {
+        showError(phoneEl, 'Phone cannot be blank.')
+    } else if (!isPhoneNumber(phone)) {
+        showError(phoneEl, '10 number.')
+    } else if (!isBetween(phone.length, min, max)) {
+        showError(phoneEl, '10 number.')
+    } else {
+        showSuccess(phoneEl)
         valid = true
     }
     return valid
@@ -86,8 +104,8 @@ const isPasswordSecure = (password) => {
     return re.test(password)
 }
 const isPhoneNumber = (phone) => {
-    const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")
-    return re.test(password)
+    const re = new RegExp("^(?=.*[0-9])(?=.{9,10})")
+    return re.test(phone)
 }
 
 // Show
@@ -125,12 +143,14 @@ form.addEventListener('submit', function (e) {
     let isUsernameValid = checkUsername(),
         isEmailValid = checkEmail(),
         isPasswordValid = checkPassword(),
-        isConfirmPasswordValid = checkConfirmPassword()
+        isConfirmPasswordValid = checkConfirmPassword(),
+        isPhoneNumber = checkPhoneNumber()
 
     let isFormValid = isUsernameValid &&
         isEmailValid &&
         isPasswordValid &&
-        isConfirmPasswordValid
+        isConfirmPasswordValid &&
+        isPhoneNumber
 
     // submit to the server if the form is valid
     if (isFormValid) {
@@ -165,6 +185,9 @@ form.addEventListener('input', debounce(function (e) {
             break
         case 'confirmpassword':
             checkConfirmPassword()
+            break
+        case 'phone':
+            checkPhoneNumber()
             break
     }
 }))

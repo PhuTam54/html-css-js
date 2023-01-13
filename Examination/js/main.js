@@ -1,3 +1,4 @@
+// Check username + email
 let id = (id) => document.getElementById(id);
 
 let classes = (classes) => document.getElementsByClassName(classes);
@@ -5,16 +6,20 @@ let classes = (classes) => document.getElementsByClassName(classes);
 let username = id("username"),
     email = id("email"),
     password = id("password"),
-    form = id("form"),
+    phone = id("phone"),
+    job = id("job"),
     errorMsg = classes("error"),
     successIcon = classes("success-icon"),
     failureIcon = classes("failure-icon");
 
+
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    engine(username, 0, "Username cannot be blank");
-    engine(email, 1, "Email cannot be blank");
+    engine(username, 0, "Cannot be blank");
+    engine(email, 1, "Cannot be blank");
+    engine(phone, 2, "Cannot be blank")
+    engine(password, 3, "Cannot be blank")
 });
 
 let engine = (id, serial, message) => {
@@ -44,13 +49,7 @@ $('#password, #confirmpassword').on('keyup', function(){
     let password=$('#password').val();
     let confirm_password=$('#confirmpassword').val();
 
-    if(password===""){
-        $('.confirm-message').text("Password Field cannot be empty").addClass('error-message');
-    }
-    else if(confirm_password===""){
-        $('.confirm-message').text("Confirm Password Field cannot be empty").addClass('error-message');
-    }
-    else if(confirm_password===password)
+    if(confirm_password===password)
     {
         $('.confirm-message').text('Password Match!').addClass('success-message');
     }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Register</title>
+    <title>Create Account</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -50,35 +50,46 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
                         </div>
-                        <select class="custom-select" style="max-width: 120px;">
+                        <select class="custom-select" style="max-width: 80px;">
                             <option selected="">+84</option>
                             <option value="1">+83</option>
                             <option value="2">+82</option>
                         </select>
-                        <input name="" class="form-control" placeholder="Phone number" type="text" required>
+                        <input name="phone" class="form-control" id="phone" placeholder="Phone number" type="text">
+                        <i class="fas fa-exclamation-circle failure-icon"></i>
+                        <i class="fas fa-check-circle success-icon"></i>
+                        <div class="error"></div>
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-building"></i> </span>
                         </div>
-                        <select class="form-control" required>
-                            <option selected=""> Select job type</option>
+                        <select class="form-control">
+                            <option selected="" > Select job type</option>
                             <option>Designer</option>
                             <option>Manager</option>
                             <option>Accaunting</option>
+                            <p id="job">,</p>
+                            <i class="fas fa-exclamation-circle failure-icon"></i>
+                            <i class="fas fa-check-circle success-icon"></i>
+                            <div class="error"></div>
                         </select>
+                        
                     </div> <!-- form-group // -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
-                        <input class="form-control" id="password" placeholder="Create password" type="password" required>
+                        <input class="form-control" id="password"  placeholder="Create password" type="password">
+                        <i class="fas fa-exclamation-circle failure-icon"></i>
+                            <i class="fas fa-check-circle success-icon"></i>
+                            <div class="error"></div>
                     </div> <!-- form-group // -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
-                        <input class="form-control" id="confirmpassword" placeholder="Repeat password" type="password" required>
+                        <input class="form-control" id="confirmpassword" placeholder="Repeat password" type="password">
                         <div class="form-text confirm-message"></div>
                     </div>  <!-- form-group// -->
                     <div class="form-group">

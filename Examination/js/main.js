@@ -104,6 +104,7 @@ const isPasswordSecure = (password) => {
     return re.test(password)
 }
 const isPhoneNumber = (phone) => {
+    //reguar expression (check phone number)
     const re = new RegExp("^(?=.*[0-9])(?=.{9,10})")
     return re.test(phone)
 }

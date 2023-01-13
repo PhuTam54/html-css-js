@@ -1,0 +1,67 @@
+.divider-text {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.divider-text span {
+    padding: 7px;
+    font-size: 12px;
+    position: relative;   
+    z-index: 2;
+}
+
+.divider-text:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    top: 55%;
+    left: 0;
+    z-index: 1;
+}
+
+.btn-facebook {
+    background-color: #405D9D;
+    color: #fff;
+}
+.btn-facebook:hover {
+    color: #42AEEC;
+}
+.btn-twitter {
+    background-color: #42AEEC;
+    color: #fff;
+}
+
+.success-icon,
+    .failure-icon {
+        right: 0;
+        opacity: 0;
+    }
+    .failure-icon,
+    .error {
+        color: red;
+    }
+    .success-icon {
+        color: green;
+    }
+    .error {
+        font-size: 14.5px;
+        margin-top: 5px;
+    }
+
+    form div {
+        position: relative;
+    }
+    form div i {
+        position: absolute;
+        padding: 10px;
+        }
+
+form div span i {
+    position: relative;
+}
+
+.input-group-text {
+    padding: 0;
+}

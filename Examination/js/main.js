@@ -103,6 +103,7 @@ const isPasswordSecure = (password) => {
     const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")
     return re.test(password)
 }
+
 const isPhoneNumber = (phone) => {
     //reguar expression (check phone number)
     const re = new RegExp("^(?=.*[0-9])(?=.{9,10})")

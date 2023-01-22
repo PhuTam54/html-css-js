@@ -7,6 +7,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layout</title>
     <link rel="stylesheet" type="text/css" href="css/MyStyle.css">
+    <style type="text/css">
+        @font-face {
+            font-family: 'QuicksandBook';
+            src: url(../fonts/Quicksand_Book-webfont.eot);
+            src: url(fonts/Quicksand_Book-webfont.eot?#iefix) format(embedded-opentype),
+                url(fonts/Quicksand_Book-webfont.woff) format(woff),
+                url(fonts/Quicksand_Book-webfont.ttf) format(truetype),
+                url(fonts/Quicksand_Book-webfont.svg#QuicksandBook) format(svg);
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            color: #ffffff;
+            background: #413f3b url(images/bg.jpg);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 90%;
+            margin: 0px;
+            text-align: center;
+
+        }
+
+        a {
+            color: #b5c1ad;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #ffffff;
+        }
+
+        .header {
+            background-image: url(images/bg-header.jpg);
+            padding: 0px 0px 0px 0px;
+            height: 100px;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            z-index: 50;
+        }
+
+        .nav {
+            float: right;
+            font-family: 'QuicksandBook', Arial, Helvetica, sans-serif;
+            padding: 45px 0px 0px 0px;
+            text-align: right;
+        }
+
+        .wrapper {
+            width: 960px;
+            margin: 0px auto;
+            background-image: url(images/bg-triangle.png);
+            background-repeat: no-repeat;
+            background-position: 0px 0px;
+            text-align: left;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        h1,
+        h2 {
+            font-family: 'QuicksandBook', Arial, Helvetica, sans-serif;
+            font-weight: normal;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 240%;
+            margin-top: 140px;
+        }
+
+        .date {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 75%;
+            color: #b5c1ad;
+        }
+
+        .intro {
+            clear: left;
+            font-size: 90%;
+            line-height: 1.4em;
+        }
+
+        .main-story {
+            background-image: url(images/triangles.png);
+            background-repeat: no-repeat;
+            background-position: 122px 142px;
+            height: 570px;
+        }
+
+        .more-articles {
+            border-top: 1px solid #ffffff;
+            padding: 10px;
+        }
+
+        .more-articles p {
+            border-bottom: 1px solid #807c72;
+            padding: 5px 0px 15px 0px;
+            font-size: 80%;
+        }
+
+        .more-articles p:last-child {
+            border-bottom: none;
+        }
+
+        .grid_12 a {
+            text-align: block;
+        }
+
+        .footer {
+            clear: both;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 5px 10px;
+        }
+
+        .footer p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 75%;
+            text-align: right;
+        }
+
+        .footer a {
+            color: #807c72;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,7 +143,7 @@
                 <img src="images/logo.png" alt="Pedal Faster.." width="216" height="37" class="logo">
                 <img src="images/header-triangle.png" alt="" width="116" height="100">
             </div>
-            <div class="nav">
+            <div class="nav grid_7">
                 <a href="">home</a> / <a href="">news</a> / <a href="">archives</a> / <a href="">about</a> / <a
                     href="">contact</a>
             </div>
@@ -37,10 +164,10 @@
                 <p>For those who want to create their bike themeselves, the veloheld frames come in three sizes and two
                     colours and are the perfect starting point. <a href="">Continue reading...</a></p>
             </div>
-        </div>
+        </div> 
     </div>
     <!-- .main-story -->
-    <div class="more-articles cotainer_12">
+    <div class="more-articles container_12">
         <h2 class="grid_12"><a href="">More Articles</a></h2>
         <div class="grid_3">
             <img src="images/more1.jpg" alt="The road ahead" width="220" height="125">
@@ -66,7 +193,7 @@
             <p> <a href="">Reader Survey: Share your thoughts with us!</a></p>
             <p> <a href="">Chain Gang: The evolution of the humble bike chain</a></p>
         </div>
-    <!-- .more-articles -->
+        <!-- .more-articles -->
     </div>
     <div class="footer clearfix">
         <div class="container_12">

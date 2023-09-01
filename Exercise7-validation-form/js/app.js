@@ -80,7 +80,7 @@ const isEmailValid = (email) => {
 }
 
 const isPasswordSecure = (password) => {
-    //reguar expression (check password)
+    //Regular expression (check password)
     const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")
     return re.test(password)
 }

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components JSX</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        .click-btn {
+            color: aqua;
+            background-color: black;
+            border-color: aqua;
+        }
+
+        .click-link {
+            color: black;
+            background-color: aqua;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!--                JSX Pro
+        // Phần I.
+        - Xử lý DOM events    => ok
+        - Component do chúng ta định nghĩa phải viết in hoa kí tự đầu => ok
+        - Chọn component trong 1 object   => ok
+        - Booleans, Null & Undefined không được render => ok
+        - Kết hợp toán tử logic để render theo điều kiện => ok
+
+        // Phần II.
+        - Props trong JSX 
+            - <YourComponent
+                propName1 = "String literals"
+                propName2 = {expression}
+            />
+            - Props default to "true"
+            - Spread / Rest props
+            - Children prop
+                - <YourComponent>String literals </YourComponent>
+                - <YourComponent>{expression}</YourComponent>
+            - Render props
+     -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        const Form = {
+            Input() {
+                return <input />
+            },
+            Checkbox() {
+                return <input type="checkbox" />
+            }
+        }
+
+        // example
+        function Button({ title, href, onClick }) {
+            let Component = ''
+            const props = {}
+            let ClassName = ''
+
+            if (href) {
+                Component = 'a'
+                props.href = href
+                ClassName = 'click-link'
+            }
+
+            if (onClick) {
+                Component = 'button'
+                props.onClick = onClick
+                ClassName = 'click-btn'
+            }
+
+            return (
+                <Component className = {ClassName} {...props}>{title}</Component>
+            )
+        }
+
+        // App.js
+        function App({ title, content }) {
+            // const type = 'Input'
+            // const Component = Form[type];
+
+            // <div id="wrapper">
+            //         <h1>{content || title}</h1>
+            //     </div>
+            return (
+                <Button
+                    title="Click me!!!"
+                    href="https://fullstack.edu.vn/"
+                    // onClick={() => console.log(Math.random())}
+                />
+            )
+        }
+
+        // index.js
+        ReactDOM.render(<App title='Hello' />, document.getElementById('root'))
+    </script>
+</body>
+
+</html>

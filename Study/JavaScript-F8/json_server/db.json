@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": 2,
+      "name": "Tran Thuy",
+      "age": 19
+    },
+    {
+      "name": "Phu Duan",
+      "age": "23",
+      "id": 5
+    },
+    {
+      "name": "Phu Tam",
+      "age": "19",
+      "id": 6
+    }
+  ]
+}

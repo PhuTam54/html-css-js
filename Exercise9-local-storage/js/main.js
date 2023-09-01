@@ -7,7 +7,7 @@ let tasks = document.getElementById("tasks");
 let add = document.getElementById("add");
 
 form.addEventListener("submit", (e) => {
-    e.preventDefault();
+    e.preventDefault();  //Bat dong bo javascript. Cac su kien dien ra tuan tu.
     formValidation()
 });
 

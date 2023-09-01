@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React DOM</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // assigment
+        // h1
+        const h1React = React.createElement(
+            'h1',
+            {
+                title: 'Hello',
+                className: 'heading'
+            },
+            'Hello guys!')
+
+        // ul li
+        const ulReact = React.createElement(
+            'ul',
+            {
+                id: 'ul-id',
+                style: {
+                    color: 'red',
+                    fontSize: '40px'
+                }
+            },
+            React.createElement('li', { id: 'li-1' }, 'Javascript'),
+            React.createElement('li', null, 'ReactJS')
+        )
+
+        // JSX
+        const reactCourse = 'React JS'
+        const courses = [
+            {
+                name: 'HTML, CSS'
+            },
+            {
+                name: 'Javascript'
+            },
+            {
+                name: 'React JS'
+            }
+        ]
+
+        const ulJSX = 
+            (<React.fragment>
+                <ul className="course-list">
+                    {courses.map((course, index) =>
+                        <li key={index}>{course.name}</li>)}
+                </ul>
+
+                <ul>
+                    <li>Fragment</li>
+                </ul>
+            </React.fragment>)
+
+        // Get root element
+        const root = document.getElementById('root')
+
+        // React-DOM -> render
+
+        //@react17
+        ReactDOM.render(ulJSX, root)
+
+        // @react18
+        // const root = ReactDOM.createRoot(container)
+        // // root.render(h1React)
+        // root.render(ulReact)
+
+    </script>
+</body>
+
+</html>

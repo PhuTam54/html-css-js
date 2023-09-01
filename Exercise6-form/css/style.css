@@ -1,5 +1,4 @@
 /** Style default **/
-
 *{
    margin: 0;
    padding: 0;
@@ -151,23 +150,3 @@ button:hover {
     opacity: 0.8;
 }
 /** Style of media **/
-@media(max-width: 900px) {
-        .container {
-            flex-direction: column;
-        }
-        form,
-        .content {
-            width: 100%;
-        }
-        .btn {
-            flex-direction: column;
-        }
-        .image {
-            height: 70vh;
-        }
-    }
-    @media (max-width:425px) {
-        form {
-            padding: 20px;
-        }
-    }

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Props</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- 
+        PROPS
+
+        -React elements
+            - Sử dụng props giống như attribute của thẻ HTML
+            - 2 props class, for => className, htmlFor
+            - Phải tuân theo quy ước có sẵn
+        -React components
+            - Sử dụng props giống như đối số cho function
+            - Tự do đặt tên props
+                - Đặt theo camelCase
+                - *Có thể bao gồm dấu gạch ngang
+        -Chú ý:
+            - Prop "key" là prop đặc biệt
+            - Props cơ bản là đối số của Components
+                => Props có thể là bất cứ kiểu dữ liệu gì
+            - Sử dụng destructuring
+     -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // PostItem.js
+        function PostItem({
+            image,
+            title,
+            description,
+            time,
+            callBack = () => {},
+        }) {
+            callBack()
+            // if (typeof props.callBack === 'function')
+                // props.callBack(Math.random())
+
+            return (
+                <div className="post-item">
+                    <img src={image} alt={title} />
+                    <div className="post-title">{title}</div>
+                    <div className="post-desc">{description}</div>
+                    <div className="post-time">{time}</div>
+                </div>
+            )
+        }
+
+
+        // <label htmlFor="name">Name</label>
+        // <input id = "name" type="text"/>
+
+        // App.js
+        function App() {
+            return (
+                <div id="wrapper">
+                    <PostItem
+                        image='https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png'
+                        title='Lập Trình JavaScript Cơ Bản'
+                        description='Học Javascript cơ bản phù hợp cho người chưa từng học lập trình. Với hơn 100 bài học và có bài tập thực hành sau mỗi bài học.'
+                        time='29 giờ 11 phút'
+                        callBack={(random) => {
+                            console.log('random: ', random);
+                        }}
+                    />
+                    <PostItem
+                        image='https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png'
+                        title='2 Lập Trình JavaScript Cơ Bản'
+                        description='2 Học Javascript cơ bản phù hợp cho người chưa từng học lập trình. Với hơn 100 bài học và có bài tập thực hành sau mỗi bài học.'
+                        time='2 29 giờ 11 phút'
+                    />
+                    <PostItem
+                        image='https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png'
+                        title='3 Lập Trình JavaScript Cơ Bản'
+                        description='3 Học Javascript cơ bản phù hợp cho người chưa từng học lập trình. Với hơn 100 bài học và có bài tập thực hành sau mỗi bài học.'
+                        time='3 29 giờ 11 phút'
+                    />
+                </div>
+            )
+        }
+
+        // index.js
+        ReactDOM.render(<App />, document.getElementById('root'))
+    </script>
+</body>
+
+</html>

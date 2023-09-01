@@ -100,7 +100,7 @@ header::after {
     height: 30px;
     border-radius: 5px;
 }
-/* The Modal (baclground) */
+/* The Modal (background) */
 .modal {
     display: none;   /* Hidden by default */
     position: fixed; /* Stay in place */

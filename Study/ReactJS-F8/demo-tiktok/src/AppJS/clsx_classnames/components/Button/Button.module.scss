@@ -1,0 +1,21 @@
+.btn {
+    padding: 4px 16px;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+    user-select: none;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.9;
+    }
+}
+
+.primary {
+    background-color: #007bfe;
+    color: black;
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom events JSX</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- 
+        PROPS
+
+        -React elements
+            - Sử dụng props giống như attribute của thẻ HTML
+            - 2 props class, for => className, htmlFor
+            - Phải tuân theo quy ước có sẵn
+        -React components
+            - Sử dụng props giống như đối số cho function
+            - Tự do đặt tên props
+                - Đặt theo camelCase
+                - *Có thể bao gồm dấu gạch ngang
+        -Chú ý:
+            - Prop "key" là prop đặc biệt
+            - Props cơ bản là đối số của Components
+                => Props có thể là bất cứ kiểu dữ liệu gì
+            - Sử dụng destructuring
+     -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // App.js
+        function App() {
+            return (
+                <div id="wrapper">
+                    <button
+                        onClick={(event) =>
+                            console.log(event.target)
+                        }
+                    >
+                        Click me!!!
+                    </button>
+                </div>
+            )
+        }
+
+        // index.js
+        ReactDOM.render(<App/>, document.getElementById('root'))
+    </script>
+</body>
+
+</html>

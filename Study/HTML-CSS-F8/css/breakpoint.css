@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    height: 100vh;
+}
+
+.mobile,
+.pc,
+.tablet {
+    font-size: 50px;
+    margin: auto;
+    display: none;
+}
+
+/* Mobile: width < 740px */
+@media only screen and (max-width: 46.1875em){
+    .mobile{
+        display: block;
+    }
+}
+
+/* Tablet: 740px <= width < 1024px  */
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em){
+    .tablet {
+        display: block;
+    }
+}
+
+/* Pc: width >= 1024px */
+@media only screen and (min-width: 64em){
+    .pc {
+        display: block;
+    }
+}

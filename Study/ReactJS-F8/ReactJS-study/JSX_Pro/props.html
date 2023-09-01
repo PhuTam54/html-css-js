@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Props JSX</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <!--                JSX Pro
+        // Phần I.
+        - Xử lý DOM events    => ok
+        - Component do chúng ta định nghĩa phải viết in hoa kí tự đầu => ok
+        - Chọn component trong 1 object   => ok
+        - Booleans, Null & Undefined không được render => ok
+        - Kết hợp toán tử logic để render theo điều kiện => ok
+
+        // Phần II.
+        - Props trong JSX 
+            - <YourComponent      => ok
+                propName1 = "String literals"
+                propName2 = {expression}
+            />
+            - Props default to "true"  => ok
+            - Spread / Rest props     => ok
+            - Children prop      => ok
+                - <YourComponent>String literals </YourComponent>
+                - <YourComponent>{expression}</YourComponent>
+            - Render props
+     -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+        //  CHILDREN PROPS //
+        // button
+        function Button({ children }) {
+            let Component = 'button'
+            const props = {}
+
+            return (
+                <Component {...props}>{children}</Component>
+            )
+        }
+
+        // <Button>Click me!!!</Button>
+
+        // input
+        function Input({ label, ...inputProps }) {
+            return (
+                <div>
+                    <label>{label}</label>
+                    <input {...inputProps} />
+                </div>
+            )
+        }
+
+        // const title = 'Hello'
+        // return (
+        // <Input
+        //     label='Input'
+        //     type='radio'
+        //     placeholder='Enter name, man'
+        //     onFocus={() => {
+        //         console.log(Math.random());
+        //     }}
+        // />)
+
+        //  RENDER PROPS //
+        function List({ data, children }) {
+            return (
+                <ul>
+                    {data.map((...props) => children(...props))}
+                </ul>
+            )
+        }
+
+        // App.js
+        function App() {
+            const cars = ['BMW', 'Bently', 'Rolls royce']
+            return (
+                <div id="wrapper">
+                    <List data={cars}>
+                        {(item, index) => <li key={index}>{item}</li>}
+                    </List>
+                </div>
+            )
+        }
+
+        // index.js
+        ReactDOM.render(<App />, document.getElementById('root'))
+    </script>
+</body>
+
+</html>

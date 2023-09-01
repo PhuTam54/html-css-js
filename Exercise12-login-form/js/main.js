@@ -11,7 +11,7 @@ let username = id("username"),
     failureIcon = classes("failure-icon");
     msg= classes("msg");
     tasks= classes("tasks");
-    
+
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     formValidation();

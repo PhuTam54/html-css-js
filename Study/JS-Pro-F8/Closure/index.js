@@ -30,5 +30,7 @@ function createStorage(key) {
 const profileSetting = createStorage('profile_setting')
 
 profileSetting.set('fullName', 'Phu Tam')
+profileSetting.set('age', 19)
+profileSetting.set('address', 'BN')
 
 console.log(profileSetting.get('fullName'));

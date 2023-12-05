@@ -2,9 +2,10 @@
   "name": "f8-nodejs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "nodemon --inspect index.js",
+    "start": "nodemon --inspect src/index.js",
+    "watch": "node-sass --watch src/resources/scss --output src/public/css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,7 +16,6 @@
     "f8",
     "blog",
     "f8",
-    "nodejs",
     "nodejs"
   ],
   "author": "phutam",
@@ -25,9 +25,11 @@
   },
   "homepage": "https://github.com/PhuTam54/html-css-js#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2"
   },
   "devDependencies": {
+    "node-sass": "^9.0.0",
     "nodemon": "^2.0.20"
   }
 }

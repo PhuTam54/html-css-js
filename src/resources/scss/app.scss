@@ -1,6 +1,9 @@
 @import 'variables';
 
 h1 {
-    font-size: 1rem;
+    font-size: 3rem;
+    padding: 20px;
+    text-align: center;
     background-color: $primary-color;
+    margin: 0;
 }

@@ -11,7 +11,6 @@ class SiteController {
                 })
             })
             .catch(next)
-        // res.json(courses);
     }
 
     // GET /search

@@ -1,8 +1,7 @@
 <div class="mt-4">
-    <h2>My courses</h2>
-    <div class="table-header d-flex justify-content-between p-4">
-      <a href="/course/create" class="btn btn-success"><i class="fa fa-plus"></i>Add a new course</a>
-      <a href="/me/trashed/course" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+    <div class="table-header p-4">
+      <a href="/me/stored/course" class="link"><i class="fa fa-backward"></i>Back to My Courses</a>
+      <h2>Trashed courses</h2>
     </div>
 
     <table class="table mt-4">
@@ -11,7 +10,7 @@
           <th scope="col">#</th>
           <th scope="col">Name</th>
           <th scope="col">VideoID</th>
-          <th scope="col">Created_at</th>
+          <th scope="col">Deleted_at</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
@@ -21,24 +20,24 @@
           <th scope="row">{{sum @index 1}}</th>
           <td>{{ this.name }}</td>
           <td>{{ this.videoId}}</td>
-          <td>{{ this.createdAt}}</td>
+          <td>{{ this.deletedAt}}</td>
           <td>
-            <a class="btn btn-info" href="/course/{{ this._id }}/edit">
-              <i class="fa fa-pencil"></i>
-              Edit
+            <a class="btn btn-info restore-btn" href="" data-id="{{ this._id }}">
+              <i class="fa fa-redo"></i>
+              Restore
             </a>
             <!-- Button trigger modal -->
-            <a href="/course/{{ this._id }}?_method=DELETE" class="btn btn-danger" type="button" data-id="{{ this._id }}" data-toggle="modal" data-target="#deleteCourseModal">
+            <a href="/course/{{ this._id }}/force?_method=DELETE" class="btn btn-danger" type="button" data-id="{{ this._id }}" data-toggle="modal" data-target="#deleteCourseModal">
               <i class="fa fa-trash"></i>
-              Delete
+              Force delete 
             </a>
             </div>
           </td>
         </tr>
         {{else}}
         <tr>
-          <td colspan="5" class="text-center">There is no course.
-            <a href="/course/create">Add a new course</a>
+          <td colspan="5" class="text-center">There is no trashed course.
+            <a href="/me/stored/course" class="link"><i class="fa fa-backward"></i>Back to My Courses</a>
           </td>
         </tr>
         {{/each}}
@@ -51,19 +50,20 @@
 
 {{!-- hidden delete form --}}
 <form method="POST" name="delete-course-form"></form>
+<form method="POST" name="restore-course-form"></form>
 
 {{!-- Confirm delete course modal --}}
 <div class="modal fade" id="deleteCourseModal" tabindex="-1" role="dialog" aria-labelledby="deleteCourseModalTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Delete course</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Force Delete course</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Are you sure want to delete this course?
+        Are you sure want to force delete this course?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -78,15 +78,28 @@
     var courseId;
     var deleteBtn = document.getElementById('delete-course-btn')
     var deleteForm = document.forms['delete-course-form']
+    var restoreForm = document.forms['restore-course-form']
+    var restoreBtn = $('.restore-btn')
 
+    // When delete modal show
     $('#deleteCourseModal').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget)
       courseId = button.data('id')
     })
 
+    // When delete btn clicked
     deleteBtn.onclick = function() {
-      deleteForm.action = `/course/${courseId}?_method=DELETE`
+      deleteForm.action = `/course/${courseId}/force?_method=DELETE`
       deleteForm.submit()
     }
+
+    // When restore btn clicked
+    restoreBtn.click(function(e) {
+      e.preventDefault()
+      courseId = $(this).data('id')
+      restoreForm.action = `/course/${courseId}/restore?_method=PATCH`
+      restoreForm.submit()
+    })
+
   })
 </script>

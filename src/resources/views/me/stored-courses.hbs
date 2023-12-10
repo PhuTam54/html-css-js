@@ -1,13 +1,31 @@
-<div class="mt-4">
+<form class="mt-4 mx-4" name="container-form" action="/course/handle-action-form" method="POST">
     <h2>My courses</h2>
-    <div class="table-header d-flex justify-content-between p-4">
+    <div class="table-header d-flex justify-content-between py-4">
       <a href="/course/create" class="btn btn-success"><i class="fa fa-plus"></i>Add a new course</a>
-      <a href="/me/trashed/course" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+      <a href="/me/trashed/course" class="btn btn-danger"><i class="fa fa-trash"></i><span class="badge badge-light ml-1">{{deletedCount}}</span></a>
+    </div>
+
+    <div class="form-select d-flex align-items-center">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="checkbox-all">
+        <label class="form-check-label fs-4" for="checkbox-all">
+          Select all
+        </label>
+      </div>
+      <div class="form-group my-auto mx-4">
+        <select class="form-control" id="actionSelect" name="action" required>
+          <option value="">-- Action --</option>
+          <option value="delete">Delete</option>
+        </select>
+      </div>
+
+      <button class="btn btn-primary btn-sm select-all-submit-btn" disabled>Submit</button>
     </div>
 
     <table class="table mt-4">
       <thead>
         <tr>
+          <th></th>
           <th scope="col">#</th>
           <th scope="col">Name</th>
           <th scope="col">VideoID</th>
@@ -18,7 +36,12 @@
       <tbody>
         {{#each courses}}
         <tr>
-          <th scope="row">{{sum @index 1}}</th>
+          <td>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="{{ this._id }}" name="courseIds[]">
+            </div>
+          </td>
+          <td scope="row">{{sum @index 1}}</td>
           <td>{{ this.name }}</td>
           <td>{{ this.videoId}}</td>
           <td>{{ this.createdAt}}</td>
@@ -75,18 +98,64 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var courseId;
-    var deleteBtn = document.getElementById('delete-course-btn')
-    var deleteForm = document.forms['delete-course-form']
+    let courseId;
+    let deleteBtn = document.getElementById('delete-course-btn')
+    let deleteForm = document.forms['delete-course-form']
+    let containerForm = document.forms['container-form']
+    let checkboxAll = $('#checkbox-all')
+    let courseItemCheckbox = $('input[name="courseIds[]"]')
+    let selectAllSubmitBtn = $('.select-all-submit-btn')
+    const actionSelect = $('#actionSelect')
 
+    // When deleteCourseModal showing
     $('#deleteCourseModal').on('show.bs.modal', function (event) {
-      var button = $(event.relatedTarget)
+      let button = $(event.relatedTarget)
       courseId = button.data('id')
     })
 
+    // When deleteBtn clicked
     deleteBtn.onclick = function() {
       deleteForm.action = `/course/${courseId}?_method=DELETE`
       deleteForm.submit()
     }
+
+    // When checkbox-all changed
+    checkboxAll.change(function() {
+        let isCheckedAll = $(this).prop('checked')
+        courseItemCheckbox.prop('checked', isCheckedAll)
+        renderCheckAllSubmitBtn()
+    })
+
+    // When courseItemCheckbox changed
+    courseItemCheckbox.change(function() {
+        let isCheckedAll = courseItemCheckbox.length === $('input[name="courseIds[]"]:checked').length
+        checkboxAll.prop('checked', isCheckedAll)
+        renderCheckAllSubmitBtn()
+    })
+
+    // When actionSelect changed
+    actionSelect.change(function() {
+        renderCheckAllSubmitBtn()
+    })
+
+    // When selectAllSubmitBtn changed
+    selectAllSubmitBtn.on('submit', function(e) {
+        let isSubmittable = !$(this).hasClass('disabled')
+        if (!isSubmittable) {
+          e.preventDefault()
+        }
+    })
+
+    // Re-render check all submit btn
+    function renderCheckAllSubmitBtn() {
+      let checkedCount = $('input[name="courseIds[]"]:checked').length
+      if (checkedCount > 0 && actionSelect.val() != '') {
+        selectAllSubmitBtn.attr('disabled', false)
+      } else {
+        selectAllSubmitBtn.attr('disabled', true)
+      }
+    }
+      console.log(containerForm)
+
   })
 </script>

@@ -27,9 +27,11 @@
         <tr>
           <th></th>
           <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">VideoID</th>
-          <th scope="col">Created_at</th>
+          <th scope="col">
+            Name {{{sortable 'name' _sort}}}
+          </th>
+          <th scope="col">VideoID {{{sortable 'videoId' _sort}}}</th>
+          <th scope="col">Created_at {{{sortable 'createdAt' _sort}}}</th>
           <th scope="col">Action</th>
         </tr>
       </thead>

@@ -3,7 +3,7 @@ const express = require('express');
 const methodOverride = require('method-override');
 const hbs = require('express-handlebars');
 
-const SortMiddleware = require('./app/middlewares/sortMiddleware.x');
+const SortMiddleware = require('./app/middlewares/SortMiddleware');
 
 const route = require('./routes');
 const db = require('./config/db');
@@ -34,30 +34,7 @@ app.engine(
     'hbs',
     hbs.engine({
         extname: '.hbs',
-        helpers: {
-            sum: (a, b) => a + b,
-            sortable: (field, sort) => {
-                const sortType = field === sort.column ? sort.type : 'default';
-
-                const icons = {
-                    default: 'fa fa-sort',
-                    asc: 'fas fa-sort-amount-down-alt',
-                    desc: 'fas fa-sort-amount-down',
-                }
-                const types = {
-                    default: 'desc',
-                    asc: 'desc',
-                    desc: 'asc',
-                }
-
-                const icon = icons[sortType]
-                const type = types[sortType]
-
-                return `<a href="/me/stored/course?_sort&column=${field}&type=${type}">
-                    <i class="${icon}"></i>
-                </a>`
-            }
-        },
+        helpers: require('./helpers/handlebars'),
     }),
 );
 app.set('view engine', 'hbs');
